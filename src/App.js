@@ -1,25 +1,33 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Navbar from './component/Navbar';
+import {Switch,Route} from 'react-router-dom'
+import Cart from './component/Cart/Cart';
+import ProductList from './component/ProductList';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Details from "./component/Details";
+import Modal from './component/Modal';
+import Login from './component/Login';
+import Signup from './containers/Signup';
+import ForgetPassword from './containers/ForgetPassword';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+  
+   <>
+    <Navbar/> 
+    <Switch>  
+      <Route exact path='/login' component={Login}/>
+      <Route path="/signup" component={Signup} />
+      <Route path="/forget-password" component={ForgetPassword} />
+      <Route exact path='/' component={ProductList}/>
+      <Route exact path='/cart' component={Cart}/>
+      <Route exact path='/details' component={Details}/>'
+      </Switch>
+      <Modal/>
+    </>
+      
   );
 }
 
